@@ -5,13 +5,6 @@ import sys
 import pandas as pd
 
 def main():
-    cmd, path = sys.argv[1], sys.argv[2]
-    if cmd == 'import_squirrel_data':
-        df = pd.read_csv(path)
-    elif cmd == 'export_squirrel_data':
-        df.to_csv(path)
-    else:
-        raise Exception("Error: Unrecognized Command: {}".format(cmd))
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'squirrel.settings')
     try:
         from django.core.management import execute_from_command_line
