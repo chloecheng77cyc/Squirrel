@@ -13,7 +13,11 @@ class Sighting(models.Model):
     )
 
 
-    Unique Squirrel ID = Hectare + '-' + Shift + '-' +
+    Primary_squirrel_id = models.CharField(
+        primary_key=True,
+        max_length=32,
+        help_text=_("Unique squirrel id.")
+    )
 
     PM = 'pm'
     AM = 'am'
@@ -69,7 +73,7 @@ class Sighting(models.Model):
                         
     
     Primary_Fur_Color = models.CharField(
-        max_lenght=16,
+        max_length=16,
         choices=FUR_CHOICES,
         default=GRAY,
         help_text=_("Fur color of Squirrel"),
