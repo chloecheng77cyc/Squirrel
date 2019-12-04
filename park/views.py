@@ -12,7 +12,7 @@ from .models import Sighting
 
 
 
-def sighting_map(request):
+def map(request):
     sightings = Sighting.objects.order_by('?')[:100]
     context = {
         'sightings' : sightings,
