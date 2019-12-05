@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext as _
 
 
-class Sighting(models.Model):
+class Squirrel(models.Model):
     Latitude = models.FloatField(
         help_text = _('latitude of sighting'),
     )

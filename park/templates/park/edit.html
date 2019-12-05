@@ -1,0 +1,13 @@
+<!doctype>
+<html>
+	<body>
+		<form method="POST">
+			{% csrf_token %}
+
+			{{ form.as_p }}
+			<br>
+			<input type="submit" class="btn btn-primary" name="Submit" value="Submit">
+			<input type="submit" class="btn btn-danger" name="Delete" value="Delete">
+		</form>
+	</body>
+</html>
