@@ -8,10 +8,10 @@ import random
 from .models import Sighting
 
 
-def map(request):
-    sightings = Sighting.objects.order_by('?')[:100]
+def map_squirrels(request):
+    squirrels = Squirrel.objects.order_by('?')[:100]
     context = {
-        'sightings' : sightings,
+        'squirrels' : squirrels,
     }
     return render(request, 'park/map.html', context)
 
