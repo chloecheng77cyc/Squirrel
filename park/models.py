@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext as _
 
 
-class Sighting(models.Model):
+class Squirrel(models.Model):
     Latitude = models.FloatField(
         help_text = _('latitude of sighting'),
     )
@@ -13,7 +13,7 @@ class Sighting(models.Model):
     )
 
 
-    Primary_squirrel_id = models.CharField(
+    unique_squirrel_id = models.CharField(
         primary_key=True,
         max_length=32,
         help_text=_("Unique squirrel id.")

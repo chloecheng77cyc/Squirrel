@@ -1,50 +1,47 @@
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
+
 from park.models import Sighting
 
-class Command(BaseCommand):
-    help = 'Import data csv'
+import csv
 
-    def add_arguments(self, path):
-        path.add_argument('csv_file', nargs='+', type=str)
+class Command(BaseCommand):
+
+    def add_arguments(self, parser):
+        parser.add_argument('csv_file')
 
     def handle(self, *arg, **options):
-        import csv
         import datetime
-        from park.models import Sighting
-        path=str(options['csv_file'][0])
-        with open(path) as f:
-            data=csv.reader(f)
-            next(data)
+        with open(options['csv_file']) as fp:
+            reader = csv.DictReader(fp)
+            data = list(reader)
+            
             counter=0
-            for row in data:
-                for i in (15,16,17,18,19,21,22,23,24,25,26,27,28):
-                    if row[i]=='false':
-                        row[i]=False
-                    else:
-                        row[i]=True
-                row[5]=datetime.datetime.strptime(row[5],"%m%d%Y").strftime("%Y-%m-%d")
-                sighting=Sighting(latitude=row[1],
-                    longitude=row[0],
-                    squirrel_id=row[2],
-                    shift=row[4],
-                    date=row[5],
-                    age=row[7],
-                    fur_color=row[8],
-                    location=row[12],
-                    specific_location=row[14],
-                    running=row[15],
-                    chasing=row[16],
-                    climbing=row[17],
-                    eating=row[18],
-                    foraging=row[19],
-                    other_activities=row[20],
-                    kuks=row[21],
-                    quaas=row[22],
-                    moans=row[23],
-                    tail_flags=row[24],
-                    tail_twitches=row[25],
-                    approaches=row[26],
-                    indifferent=row[27],
-                    runs_from=row[28],)
+
+            for item in data:
+                sighting=Sighting(
+                    Latitude=item['Y'],
+                    Longitude=item['X'],
+                    unique_squirrel_id=item['Unique Squirrel ID'],
+                    Shift=item['Shift'],
+                    Date=item['Date'],
+                    Age=item['Age'],
+                    Primary_Fur_Color=item['Primary Fur Color'],
+                    Location=item['Location'],
+                    Specific_Location=item['Specific Location'],
+                    Running=item['Running'],
+                    Chasing=item['Chasing'],
+                    Climbing=item['Climbing'],
+                    Eating=item['Eating'],
+                    Foraging=item['Foraging'],
+                    Other_Activities=item['Other Activities'],
+                    Kuks=item['Kuks'],
+                    Quaas=item['Quaas'],
+                    Moans=item['Moans'],
+                    Tail_flags=item['Tail flags'],
+                    Tail_twitches=item['Tail twitches'],
+                    Approaches=item['Approaches'],
+                    Indifferent=item['Indifferent'],
+                    Runs_from=item['Runs from'],
+                    )
 
                 sighting.save()
