@@ -5,6 +5,7 @@ from . import views
 app_name = 'park'
 urlpatterns = [
     path('map/',views.map),
-    path('<int:unique_squirrel_id>/',views.squirrel_edit),
-    path('add/',views.squirrel.add),
+    path('sightings/',views.all_squirrels),
+    path('sightings/<int:unique_squirrel_id>/',views.squirrel_edit),
+    path('sightings/add/',views.squirrel.add),
 ]
