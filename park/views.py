@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.forms import ModelForm
 import random
 
-from .models import Sighting
+from .models import Squirrel
 
 
 def map_squirrels(request):

@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand,CommandError
-from tracker.models import Sighting
+from park.models import Squirrel
 
 class Command(BaseCommand):
     help='Export CSV'
