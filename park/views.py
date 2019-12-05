@@ -57,7 +57,7 @@ def edit_squirrel(request, unique_squirrel_id):
         'form':form,
     }
 
-    return render(request, 'park.edit.html', context)
+    return render(request, 'park/edit.html', context)
 
 
 

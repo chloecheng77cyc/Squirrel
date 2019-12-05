@@ -6,6 +6,6 @@ app_name = 'park'
 urlpatterns = [
     path('map/',views.map),
     path('sightings/',views.all_squirrels),
-    path('sightings/<int:unique_squirrel_id>/',views.squirrel_edit),
-    path('sightings/add/',views.squirrel.add),
+    path('sightings/<int:unique_squirrel_id>/',views.edit_squirrel),
+    path('sightings/add/',views.add_squirrel),
 ]
