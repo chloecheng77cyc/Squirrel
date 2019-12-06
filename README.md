@@ -1,8 +1,6 @@
 # Group information
  - Group 57, Section 1
  - UNIs: [ss5435, yc3703]
- - Link to the 
-[server](https://)
  - Link to 
 [Github repository](https://github.com/chloecheng77cyc/Squirrel.git)
 
@@ -39,24 +37,29 @@ $ python manage.py export_squirrel_data /path/to/file.csv
 # Views
 ## Map
  - This function shows a map that displays the location of all squirrel sightings on an OpenStreets map.
- - The link to the map is [here](https://)
+ - Located at: ​/map
+ - Method:GET
 
 ## Sightings
  - This function shows the list of all squirrel sightings with links to edit and add sightings.
- - The link to Sightings is [here](https:///).
- 
+ - Located at: ​/sightings
+ - Method:GET
+
 ## Update the sighting for specific squirrel
  - This function can be used to update the information of a specific squirrel.
  - It can be called by clicking the 'edit' button beside the squirrel.
- 
+ - Located at: ​/sightings/<unique-squirrel-id>
+ - Method:POST
+
 ## Create a new sighting
  - This function can be used to create a new sighting of a squirrel.
- - The link to the creating a new sighting is [here](https://)
- 
+ - Located at: ​/sightings/add
+ - Method:POST 
+
 ## General stats
  - This function shows the general statistics of the squirrel information in the database.
-- The link to the general stats is [here](https:///)
-
+ - Located at: ​/sightings/stats
+ - Method: GET
 
 
 
