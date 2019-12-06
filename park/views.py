@@ -42,7 +42,7 @@ def add_squirrel(request):
 
 
 def edit_squirrel(request, unique_squirrel_id):
-    squirrel = Squirrel.objects.get(id=unique_squirrel_id)
+    squirrel = Squirrel.objects.get(unique_squirrel_id=unique_squirrel_id)
     if request.method == 'POST':
         form = SquirrelForm(request.POST, instance=squirrel)
         if form.is_valid():
