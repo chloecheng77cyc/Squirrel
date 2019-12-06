@@ -22,12 +22,12 @@
 					<td> {{ squirrel.unique_squirrel_id }} </td>
 					<td> {{ squirrel.Date }} </td>
 					<td> {{ squirrel.Latitude }} </td>
-					<td> {{ squirrel.Longtitude }} </td>
-					<td> <a href="{% url "edit_squirrel" squirrel.unique_squirrel_id %}" class="badge badge-primary">edit</a></td>
+					<td> {{ squirrel.Longitude }} </td>
+					<td> <a href="{% url "park:edit_squirrel" squirrel.unique_squirrel_id %}" class="badge badge-primary">edit</a></td>
 				</tr>
 				{% endfor %}
 		</table>
-		<a href="{% url "add_squirrel" %}" class="btn btn-success">add a sighting</a>
+		<a href="{% url "park:add_squirrel" %}" class="btn btn-success">add a sighting</a>
 
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

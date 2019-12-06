@@ -42,15 +42,12 @@ def add_squirrel(request):
 
 
 def edit_squirrel(request, unique_squirrel_id):
-    squirrel = Squirrel.objects.get(id=unique-squirrel_id)
+    squirrel = Squirrel.objects.get(id=unique_squirrel_id)
     if request.method == 'POST':
         form = SquirrelForm(request.POST, instance=squirrel)
         if form.is_valid():
             form.save()
-            return redirect(f'/sightings/{unique-squirrel-id}')
-    elif request.method=='DELETE':
-        squirrel.delete()
-        return redirect(f'/sighting_list/{unique-squirrel-id}')
+            return redirect(f'park/sightings/{unique_squirrel_id}')
     else:
         form = SquirrelForm(instance=squirrel)
 
@@ -99,7 +96,7 @@ def stats_squirrel(request):
     context = {
         'count' : count,
         'adult_percentage' : adult_percentage,
-        'juvenile_percentage': juvenile_percentage
+        'juvenile_percentage': juvenile_percentage,
         'most_commmon_activity' : most_common_activity,
         'most_common_activity_count' : most_common_activity_count,
         'most_common_interaction' : most_common_interaction,
