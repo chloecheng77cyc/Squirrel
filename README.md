@@ -26,13 +26,13 @@ Project Squirrel is an application to track squirrel data in Central Park, NY. T
 ## Import
 To import data from the [2018 Central Park Squirrel Census](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw), you need to run the following code specifying the path to the file at the command line after the name of the management command.
 ```python
-python manage.py import_squirrel_data /path/to/file.csv
+$ python manage.py import_squirrel_data /path/to/file.csv
 ```
 
 ## Export
 To export the data from your django database into a csv file, you need to run the following code specifing the path to save the csv file at the command line after the name of the management command.
 ```python
-python manage.py export_squirrel_data /path/to/file.csv
+$ python manage.py export_squirrel_data /path/to/file.csv
 ```
 
 # Views
@@ -44,7 +44,7 @@ python manage.py export_squirrel_data /path/to/file.csv
  - This function shows the list of all squirrel sightings with links to edit and add sightings.
  - The link to Sightings is [here](https:///).
  
-## Update the sighting for specific squirrels
+## Update the sighting for specific squirrel
  - This function can be used to update the information of a specific squirrel.
  - It can be called by clicking the 'edit' button beside the squirrel.
  
