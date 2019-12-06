@@ -1,64 +1,62 @@
 from django.core.management.base import BaseCommand,CommandError
 from park.models import Squirrel
+from django.http import HttpResponse
 
+import csv
 class Command(BaseCommand):
-    help='Export CSV'
 
-    def add_arguments(self,path):
-        path.add_argument('data_csv',nargs='+',type=str)
+    def add_arguments(self,parser):
+        parser.add_argument('csv_file')
 
     def handle(self,*arg,**options):
-        import csv
-        from django.http import HttpResponse
-        path=str(options['data_csv'][0])
-        with open(path,'w') as f:
-            writer = csv.writer(f)
-            columns=['latitude',
-                    'longitude',
-                    'squirrel_id',
-                    'shift',
-                    'date',
-                    'age',
-                    'fur_color',
-                    'location',
-                    'specific_location',
-                    'running',
-                    'chasing',
-                    'climbing',
-                    'eating',
-                    'foraging',
-                    'other_activities',
-                    'kuks',
-                    'quaas',
-                    'moans',
-                    'tail_flags',
-                    'tail_twitches',
-                    'approaches',
-                    'indifferent',
-                    'runs_from',]
-            writer.writerow(columns)
-            squirrels=Sighting.objects.all()
+        with open(options['csv_file'],'w') as fp:
+            fieldnames=['Latitude',
+                    'Longitude',
+                    'Unique_Squirrel_ID',
+                    'Shift',
+                    'Date',
+                    'Age',
+                    'Primary_Fur_Color',
+                    'Location',
+                    'Specific_Location',
+                    'Running',
+                    'Chasing',
+                    'Climbing',
+                    'Eating',
+                    'Foraging',
+                    'Other_Activities',
+                    'Kuks',
+                    'Quaas',
+                    'Moans',
+                    'Tail_flags',
+                    'Tail_twitches',
+                    'Approaches',
+                    'Indifferent',
+                    'Runs_from',]
+            writer = csv.DictWriter(fp,fieldnames=fieldnames)
+            writer.writeheader()
+            squirrels=Squirrel.objects.all()
             for data in squirrels:
-                writer.writerow([data.latitude,
-                                 data.longitude,
-                                 data.squirrel_id,
-                                 data.shift,
-                                 data.date,
-                                 data.age,
-                                 data.fur_color,
-                                 data.location,
-                                 data.specific_location,
-                                 data.running,
-                                 data.chasing,
-                                 data.climbing,
-                                 data.eating,
-                                 data.foraging,
-                                 data.other_activities,
-                                 data.kuks,
-                                 data.quaas,
-                                 data.moans,
-                                 data.tail_flags,
-                                 data.tail_twitches,
-                                 data.approaches,
-                                 data.indifferent,
-                                 data.runs_from,])
+                writer.writerow({'Latitude':data.Latitude,
+                                 'Longitude':data.Longitude,
+                                 'Unique_Squirrel_ID':data.unique_squirrel_id,
+                                 'Shift':data.Shift,
+                                 'Date':data.Date,
+                                 'Age':data.Age,
+                                 'Primary_Fur_Color':data.Primary_fur_color,
+                                 'Location':data.Location,
+                                 'Specific_Location':data.Specific_location,
+                                 'Running':data.Running,
+                                 'Chasing':data.Chasing,
+                                 'Climbing':data.Climbing,
+                                 'Eating':data.Eating,
+                                 'Foraging':data.Foraging,
+                                 'Other_Activities':data.Other_activities,
+                                 'Kuks':data.Kuks,
+                                 'Quaas':data.Quaas,
+                                 'Moans':data.Moans,
+                                 'Tail_flags':data.Tail_flags,
+                                 'Tail_twitches':data.Tail_twitches,
+                                 'Approaches':data.Approaches,
+                                 'Indifferent':data.Indifferent,
+                                 'Runs_from':data.Runs_from})

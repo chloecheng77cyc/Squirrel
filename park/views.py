@@ -41,16 +41,13 @@ def add_squirrel(request):
     return render(request, 'park/add.html',context)
 
 
-def edit_squirrel(request, unique_squirrel_id):
-    squirrel = Squirrel.objects.get(id=unqiue_squirrel_id)
+def edit_squirrel(request, pk):
+    squirrel = get_object_or_404(Squirrel, pk=pk)
     if request.method == 'POST':
         form = SquirrelForm(request.POST, instance=squirrel)
         if form.is_valid():
             form.save()
             return redirect('park:all_squirrels')
-    elif request.method=='DELETE':
-        squirrel.delete()
-        return redirect('park:all_quirrels')
     else:
         form = SquirrelForm(instance=squirrel)
 
