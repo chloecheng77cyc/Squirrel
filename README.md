@@ -11,6 +11,7 @@
 Project Squirrel is an application to track squirrel data in Central Park, NY. The information includes location coordinates, age, primary fur color, activities, communications, and interactions between squirrels and with humans.
 
 ## Built with
+- Ubuntu 18.04 LTS
 - Python 3.7
 - Django 2.2.7
 - sqlite3 
