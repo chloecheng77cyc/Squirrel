@@ -38,18 +38,18 @@ def add_squirrel(request):
         'form': form,
     }
 
-    return render(request, 'park/edit.html',context)
+    return render(request, 'park/add.html',context)
 
 
 def edit_squirrel(request, unique_squirrel_id):
-    squirrel = Squirrel.objects.get(unique_squirrel_id=unique_squirrel_id)
+    squirrel = Squirrel.objects.get(id=unqiue_squirrel_id)
     if request.method == 'POST':
         form = SquirrelForm(request.POST, instance=squirrel)
         if form.is_valid():
             form.save()
             return redirect('park:all_squirrels')
-    elif request.method== 'DELETE':
-        sighting.delete()
+    elif request.method=='DELETE':
+        squirrel.delete()
         return redirect('park:all_quirrels')
     else:
         form = SquirrelForm(instance=squirrel)
@@ -58,7 +58,7 @@ def edit_squirrel(request, unique_squirrel_id):
         'form':form,
     }
 
-    return render(request, 'park/add.html', context)
+    return render(request, 'park/edit.html', context)
 
 
 
