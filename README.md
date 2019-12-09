@@ -3,6 +3,7 @@
  - UNIs: [ss5435, yc3703]
  - Link to 
 [Github repository](https://github.com/chloecheng77cyc/Squirrel.git)
+ - Link to [server] (https://midyear-arcade-254022.appspot.com/park/sightings/)
 
 # Squirrel
 
