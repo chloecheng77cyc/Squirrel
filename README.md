@@ -39,14 +39,16 @@ $ python manage.py export_squirrel_data /path/to/file.csv
  - This function shows a map that displays the location of all squirrel sightings on an OpenStreets map.
  - Located at: ​/map
  - Method:GET
+ - The link to [Map](https://midyear-arcade-254022.appspot.com/park/map/)
 
 ## Sightings
  - This function shows the list of all squirrel sightings with links to edit and add sightings.
  - Located at: ​/sightings
  - Method:GET
+ - The link to [Sighting](https://midyear-arcade-254022.appspot.com/park/sightings/)
 
 ## Update the sighting for specific squirrel
- - This function can be used to update the information of a specific squirrel.
+ - This function can be used to update the information of a specific squirrel by clicking the 'edit' button.
  - It can be called by clicking the 'edit' button beside the squirrel.
  - Located at: ​/sightings/<unique-squirrel-id>
  - Method:POST
@@ -54,12 +56,14 @@ $ python manage.py export_squirrel_data /path/to/file.csv
 ## Create a new sighting
  - This function can be used to create a new sighting of a squirrel.
  - Located at: ​/sightings/add
- - Method:POST 
+ - Method:POST
+ - The link to [Create a new sighting](https://midyear-arcade-254022.appspot.com/park/sightings/add/)
 
 ## General stats
  - This function shows the general statistics of the squirrel information in the database.
  - Located at: ​/sightings/stats
  - Method: GET
+ - The link to [General stats](https://midyear-arcade-254022.appspot.com/park/sightings/stats/)
 
 
 
