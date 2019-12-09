@@ -2,5 +2,5 @@ li a {
 	color: green;
     }
 body {
-	background: white  url("background.jpg") no-repeat;
+	background: white  url("background.jpg") no-repeat left Top;
 }
